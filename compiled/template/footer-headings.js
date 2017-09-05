@@ -19,8 +19,11 @@ module.exports = function (h, that) {
     var columns = that.allColumns;
 
     columns.map(function (column) {
-
-      footerHeadings.push(h("th", {}, [h("span", { "class": "VueTables__heading" }, [that.getFooterHeading(column, h)])]));
+      if (that.opts.footerHeadings[column]) {
+        footerHeadings.push(h("th", {}, [h("span", { "class": "VueTables__heading" }, [that.getFooterHeading(column, h)])]));
+      } else {
+        footerHeadings.push(h("th"));
+      }
     });
   }
 
