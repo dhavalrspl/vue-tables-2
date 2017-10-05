@@ -42,6 +42,7 @@ exports.default = function (self) {
     state.page = 1;
     self.updateState('page', 1);
     state.customQueries[filter] = value;
+    self.updateState('customQueries', state.customQueries);
 
     // Commented by Dhaval Patel
     // Date : 04-10-2017
