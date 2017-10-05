@@ -42,11 +42,13 @@ exports.default = function (self) {
     state.page = 1;
     self.updateState('page', 1);
     state.customQueries[filter] = value;
-    self.updateState('customQueries', state.customQueries);
 
-    if (self.source == 'server') {
-      self.getData();
-    }
+    // Commented by Dhaval Patel
+    // Date : 04-10-2017
+    //
+    // if (self.source=='server') {
+    //   self.getData();
+    // }
   }), _defineProperty(_merge$recursive, self.name + '/SET_STATE', function undefined(state, _ref5) {
     var page = _ref5.page,
         query = _ref5.query,
