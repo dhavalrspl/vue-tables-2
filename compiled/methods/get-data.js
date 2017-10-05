@@ -18,6 +18,7 @@ module.exports = function (promiseOnly) {
   }
 
   this.dispatch('loading', data);
+  this.loading = true;
 
   var promise = this.sendRequest(data);
 
@@ -26,6 +27,8 @@ module.exports = function (promiseOnly) {
   return promise.then(function (response) {
 
     var data = this.getResponseData(response);
+
+    this.loading = false;
 
     return this.setData(this.opts.responseAdapter(data));
   }.bind(this));
